@@ -8,6 +8,25 @@ get '/' do
 end
 
 get '/:id' do
+  if params[:id].length >= 8
+    @shortly = Shortly.find_by_shortly(params[:id])
+    if @shortly
+      redirect "#{@shortly.lead}#{@shortly.body}"
+    else
+      @error = "Invalid Shortly, please check again."
+    end
+  else
+    @error = "Invalid Shortly, please check again."
+  end
+  erb :index
+end
+
+get '/shortly/:id' do
+  if params[:id].length >= 8
+    @shortly = Shortly.find_by_shortly(params[:id])
+  else
+    @error = "Invalid Shortly, please check again."
+  end
   erb :index
 end
 
@@ -26,5 +45,5 @@ post '/shorten' do
                           shortly: Base64.encode64(body)[0..7],
                           lead:    lead,
                           body:    body )
-  redirect "/#{short.shortly}"
+  redirect "/shortly/#{short.shortly}"
 end

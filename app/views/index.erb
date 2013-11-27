@@ -1,13 +1,16 @@
 <div class="container">
   <h1>Enter your URL below!</h1>
   <form action="/shorten" method="POST">
-    <label>URL: <input type="text" name="url" placeholder="e.g., http://www.google.com" size="40"></label>
+    <label>URL: <input type="text" required name="url" placeholder="enter your url" size="40"></label>
     <input type="submit" value="Shorten it!">
   </form>
 
-  <% if @params[:id] %>
+  <% if @shortly %>
     <h2>Here's your shortened URL:</h2>
-    <a href="/<%= params[:id] %>">http://shur.ly/<%= Shortly.find_by_shortly(params[:id]).shortly %></a>
-    <p>Original URL: <a href="<%= Shortly.find_by_shortly(params[:id]).lead %><%= Shortly.find_by_shortly(params[:id]).body %>" target="_blank"><%= Shortly.find_by_shortly(params[:id]).url %></a></p>
+    <a href="/<%= @shortly.shortly %>" target="_blank">http://shur.ly/<%= @shortly.shortly %></a>
+    <p>Original URL: <a href="<%= @shortly.lead %><%= @shortly.body %>" target="_blank"><%= @shortly.url %></a></p>
+  <% elsif @error %>
+    <p><%= @error %></p>
   <% end %>
+
 </div>
