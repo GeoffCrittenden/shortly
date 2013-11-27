@@ -22,7 +22,7 @@ get '/:id' do
 end
 
 get '/shortly/:id' do
-  if params[:id].length >= 8
+  if params[:id].length >= 6
     @shortly = Shortly.find_by_shortly(params[:id])
   else
     @error = "Invalid Shortly, please check again."
@@ -42,7 +42,7 @@ post '/shorten' do
   end
   short = Shortly.create( url:     params[:url],
                           longly:  Base64.encode64(body),
-                          shortly: Base64.encode64(body)[0..7],
+                          shortly: Base64.encode64(body)[0..5],
                           lead:    lead,
                           body:    body )
   redirect "/shortly/#{short.shortly}"
