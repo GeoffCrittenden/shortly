@@ -33,9 +33,9 @@ end
 # ////////////  POST  /////////////////
 
 post '/shorten' do
-  if /(\Ahttp:\/\/www\.|\Ahttps:\/\/www\.|\Ahttp:\/\/|\Ahttps:\/\/)(.+)/.match(params[:url])
-    lead = /(\Ahttp:\/\/www\.|\Ahttps:\/\/www\.|\Ahttp:\/\/|\Ahttps:\/\/)(.+)/.match(params[:url])[1]
-    body = /(\Ahttp:\/\/www\.|\Ahttps:\/\/www\.|\Ahttp:\/\/|\Ahttps:\/\/)(.+)/.match(params[:url])[2]
+  if /(\Ahttps?:\/\/www\.|\Ahttps?:\/\/)(.+)/.match(params[:url])
+    lead = /(\Ahttps?:\/\/www\.|\Ahttps?:\/\/)(.+)/.match(params[:url])[1]
+    body = /(\Ahttps?:\/\/www\.|\Ahttps?:\/\/)(.+)/.match(params[:url])[2]
   else
     lead = "http://"
     body = params[:url]
