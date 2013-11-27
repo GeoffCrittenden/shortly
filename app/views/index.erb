@@ -1,12 +1,13 @@
 <div class="container">
-  <h1>Shortly!</h1>
-  <form action="/shorten" method="POST">
+  <h1> It's ShURLy!</h1>
+  <h2>the SHort URL maker</h2>
+  <form action="/shurlit" method="POST">
     <label>URL: <input type="text" required name="url" placeholder="enter your url here" size="40"></label>
     <input type="submit" value="Shorten it!">
   </form><br>
 
   <% if @shortly %>
-    <p>Your Shortly: 
+    <p>Your Shurly: 
     <a href="/<%= @shortly.shortly %>" target="_blank">shur.ly/<%= @shortly.shortly %></a></p>
     <p>Original URL: <a href="<%= @shortly.lead %><%= @shortly.body %>" target="_blank"><%= @shortly.url %></a></p>
   <% elsif @error %>
