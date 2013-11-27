@@ -12,3 +12,5 @@ That's when I discovered base-64 encoding.  Or rather, re-discovered it.  I had 
 It also turns out that Ruby has a Base64 library already built into it.  All you have to do is `require base64`.
 
 My next challenge was to figure out how to actually shorten URLs in a useful way, since `Base64.encode64("https://www.google.com/search?q=google")` translates into `aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS9zZWFyY2g/cT1nb29nbGU=\n`.  Not exactly efficient.
+
+At first I thought that I could just use the first so many characters of the base-64 encoding, but then I found out that `http://www.` is the same, every time yielding `"aHR0cDov"`, regardless of what comes after it.

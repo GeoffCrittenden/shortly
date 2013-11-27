@@ -8,7 +8,7 @@ get '/' do
 end
 
 get '/:id' do
-  if params[:id].length >= 8
+  if params[:id].length >= 6
     @shortly = Shortly.find_by_shortly(params[:id])
     if @shortly
       redirect "#{@shortly.lead}#{@shortly.body}"
@@ -21,7 +21,7 @@ get '/:id' do
   erb :index
 end
 
-get '/shurlit/:id' do
+get '/shurly/:id' do
   if params[:id].length >= 6
     @shortly = Shortly.find_by_shortly(params[:id])
   else
@@ -32,7 +32,7 @@ end
 
 # ////////////  POST  /////////////////
 
-post '/shurlit' do
+post '/shurlyit' do
   if /(\Ahttps?:\/\/www\.|\Ahttps?:\/\/)(.+)/.match(params[:url])
     lead = /(\Ahttps?:\/\/www\.|\Ahttps?:\/\/)(.+)/.match(params[:url])[1]
     body = /(\Ahttps?:\/\/www\.|\Ahttps?:\/\/)(.+)/.match(params[:url])[2]
@@ -45,5 +45,5 @@ post '/shurlit' do
                           shortly: Base64.encode64(body)[0..5],
                           lead:    lead,
                           body:    body )
-  redirect "/shurlit/#{short.shortly}"
+  redirect "/shurly/#{short.shortly}"
 end
