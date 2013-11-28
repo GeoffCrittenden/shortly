@@ -21,7 +21,7 @@ get '/:shortly' do
   erb :index
 end
 
-get '/shurly/:shortly' do
+get '/s/:shortly' do
   if params[:shortly].length >= 6
     @shortly = Shortly.find_by_shortly(params[:shortly])
   else
@@ -50,5 +50,5 @@ post '/shurlyit' do
                           shortly: Base64.encode64(id + body)[0..5],
                           lead:    lead,
                           body:    body )
-  redirect "/shurly/#{short.shortly}"
+  redirect "/s/#{short.shortly}"
 end
