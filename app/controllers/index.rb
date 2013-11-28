@@ -13,10 +13,10 @@ get '/:shortly' do
     if @shortly
       redirect "#{@shortly.lead}#{@shortly.body}"
     else
-      @error = "Invalid Shortly, please check again."
+      @error = "Invalid Shurly, please check again."
     end
   else
-    @error = "Invalid Shortly, please check again."
+    @error = "Invalid Shurly, please check again."
   end
   erb :index
 end
@@ -25,7 +25,7 @@ get '/s/:shortly' do
   if params[:shortly].length >= 6
     @shortly = Shortly.find_by_shortly(params[:shortly])
   else
-    @error = "Invalid Shortly, please check again."
+    @error = "Invalid Shurly, please check again."
   end
   erb :index
 end
