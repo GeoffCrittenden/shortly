@@ -1,5 +1,5 @@
 <div class="container">
-  <h1> It's <a href="/">shURLy</a>!</h1>
+  <h1> It's <a href="http://shur.ly">shURLy</a>!</h1>
   <h2>the SHort URL maker</h2>
   <form action="/shurlyit" method="POST">
     <label>URL: <input type="text" required name="url" placeholder="enter your url here" size="40" autofocus></label>
@@ -8,7 +8,7 @@
 
   <% if @shortly %>
     <p>Your Shurly: 
-    <a id="shurly" href="http://shur.ly/<%= @shortly.shortly %>" target="_blank">shur.ly/<%= @shortly.shortly %></a></p>
+    <a id="shurly" href="/<%= @shortly.shortly %>" target="_blank">shur.ly/<%= @shortly.shortly %></a></p>
     <p>Original URL: <a href="<%= @shortly.lead %><%= @shortly.body %>" target="_blank"><%= @shortly.url %></a></p>
   <% elsif @error %>
     <p><%= @error %></p>
