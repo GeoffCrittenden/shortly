@@ -8,7 +8,7 @@
 
   <% if @shortly %>
     <p>Your Shurly: 
-    <a href="http://shur.ly/<%= @shortly.shortly %>" target="_blank">shur.ly/<%= @shortly.shortly %></a></p>
+    <a id="shurly" href="http://shur.ly/<%= @shortly.shortly %>" target="_blank">shur.ly/<%= @shortly.shortly %></a></p>
     <p>Original URL: <a href="<%= @shortly.lead %><%= @shortly.body %>" target="_blank"><%= @shortly.url %></a></p>
   <% elsif @error %>
     <p><%= @error %></p>
