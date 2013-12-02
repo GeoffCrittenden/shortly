@@ -17,6 +17,8 @@ gem 'rake'
 
 gem 'shotgun'
 
+gem 'newrelic_rpm'
+
 group :test do
   gem 'faker'
   gem 'rspec'
