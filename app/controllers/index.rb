@@ -11,7 +11,7 @@ get '/:shortly' do
   if params[:shortly].length == 6
     @shortly = Shortly.find_by_shortly(params[:shortly])
     if @shortly
-      redirect "#{@shortly.lead}#{shortly.body}"
+      redirect "#{@shortly.url}"
     else
       @error = "Invalid Shurly, please check again."
     end
