@@ -44,9 +44,8 @@ post '/shurlyit' do
     id = ''
   else
     id = Shortly.maximum(:id).next.to_s
-  end 
-  url = lead + body
-  short = Shortly.create( url:     url,
+  end
+  short = Shortly.create( url:     lead + body,
                           longly:  Base64.encode64(id + body),
                           shortly: Base64.encode64(id + body)[0..5],
                           lead:    lead,
