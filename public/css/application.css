@@ -1,5 +1,6 @@
 body {
   background-color: #DDD;
+  height: 800px;
   width: 480px;
 }
 
@@ -41,6 +42,6 @@ form {
 
 footer {
   font-size: 0.75em;
-  position: absolute;
+  position: fixed;
   bottom: 0;
 }
