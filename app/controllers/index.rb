@@ -7,23 +7,23 @@ get '/' do
   erb :index
 end
 
-get '/:shortly' do
-  if params[:shortly].length == 6
+get '/s/:shortly' do
+  if params[:shortly].length >= 6
     @shortly = Shortly.find_by_shortly(params[:shortly])
-    if @shortly
-      redirect "#{@shortly.url}"
-    else
-      @error = "Invalid Shurly, please check again."
-    end
   else
     @error = "Invalid Shurly, please check again."
   end
   erb :index
 end
 
-get '/s/:shortly' do
-  if params[:shortly].length >= 6
-    @shortly = Shortly.find_by_shortly(params[:shortly])
+get '/*' do |shortly|
+  if shortly.length == 6
+    @shortly = Shortly.find_by_shortly(shortly)
+    if @shortly
+      redirect "#{@shortly.url}"
+    else
+      @error = "Invalid Shurly, please check again."
+    end
   else
     @error = "Invalid Shurly, please check again."
   end
