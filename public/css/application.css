@@ -1,9 +1,19 @@
-.container {
-  margin: 20px auto;
-  width: 600px;
-  padding: 0px 20px 20px 20px;
-  border: 1px solid black;
+body {
+  background-color: #DDD;
+  width: 480px;
 }
-th {
-  text-align: left;
+
+.container {
+  margin: 0 auto;
+  padding: 10px 20px 10px 20px;
+  width: 440px;
+}
+
+form {
+  margin-top: 30px;
+}
+
+.submit {
+  margin: 0 auto;
+  margin-top: 15px;
 }
