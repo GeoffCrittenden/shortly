@@ -10,15 +10,15 @@ body {
 }
 
 h1 {
-  font-size: 2.5em;
+  font-size: 4em;
+  margin: 0 auto;
+  margin-top: 0.4em;
+  text-align: center;
 }
 
 h2 {
-  font-size: 1.5em;
-}
-
-h1, h2 {
-  margin-left: 95px;
+  font-size: 2.1em;
+  text-align: center;
 }
 
 #shortly {
@@ -28,6 +28,7 @@ h1, h2 {
 }
 
 form {
+  font-size: 2em;
   margin: 0 auto;
   margin-top: 30px;
   text-align: center;
@@ -40,6 +41,6 @@ form {
 
 footer {
   font-size: 0.75em;
-  position: fixed;
+  position: absolute;
   bottom: 0;
 }
