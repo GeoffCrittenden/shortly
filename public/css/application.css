@@ -9,11 +9,23 @@ body {
   width: 440px;
 }
 
+h1, h2 {
+  margin-left: 95px;
+}
+
 form {
+  margin: 0 auto;
   margin-top: 30px;
+  text-align: center;
 }
 
 .submit {
   margin: 0 auto;
   margin-top: 15px;
+}
+
+footer {
+  font-size: 0.5em;
+  position: fixed;
+  bottom: 0;
 }
