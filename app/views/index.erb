@@ -6,13 +6,15 @@
     <input class="submit" type="submit" value="Shorten it!">
   </form><br>
 
-  <% if @shortly %>
-    <p>Your Shurly: 
-    <a id="shurly" href="http://shur.ly/<%= @shortly.shortly %>" target="_blank">shur.ly/<%= @shortly.shortly %></a></p>
-    <p>Original URL: <a href="<%= @shortly.lead %><%= @shortly.body %>" target="_blank"><%= @shortly.url %></a></p>
-  <% elsif @error %>
-    <p><%= @error %></p>
-  <% end %>
+  <div id="shortly">
+    <% if @shortly %>
+      <p>Your Shurly: 
+      <a id="shurly" href="http://shur.ly/<%= @shortly.shortly %>" target="_blank">shur.ly/<%= @shortly.shortly %></a></p>
+      <p>Original URL: <a href="<%= @shortly.lead %><%= @shortly.body %>" target="_blank"><%= @shortly.url %></a></p>
+    <% elsif @error %>
+      <p><%= @error %></p>
+    <% end %>
+  </div>
 
   <footer>
     <p>shURLy! is an open source web application. You can find the source <a href="https://github.com/GeoffCrittenden/shortly" target="_blank">here</a>.</p>
