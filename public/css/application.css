@@ -42,6 +42,7 @@ h2 {
   font-size: 0.7em;
   text-align: left;
   text-wrap: unrestricted;
+  word-wrap: break-word;
 }
 
 form {
