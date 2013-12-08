@@ -1,13 +1,11 @@
 body {
   background-color: #DDD;
-  height: 800px;
-  width: 480px;
+  width: 90%;
 }
 
 .container {
   margin: 0 auto;
-  padding: 10px 20px 10px 20px;
-  width: 440px;
+  width: 400px;
 }
 
 h1 {
@@ -33,6 +31,7 @@ form {
   margin: 0 auto;
   margin-top: 30px;
   text-align: center;
+  width: 100%;
 }
 
 .submit {
@@ -42,6 +41,6 @@ form {
 
 footer {
   font-size: 0.75em;
-  position: fixed;
-  bottom: 0;
+  margin-top: 18em;
+  padding: 0 10px;
 }
