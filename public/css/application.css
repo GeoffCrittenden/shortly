@@ -8,6 +8,11 @@ body {
   width: 400px;
 }
 
+a {
+    color: #399CC6;
+    text-decoration: none;
+  }
+
 h1 {
   font-size: 4em;
   margin: 0 auto;
@@ -22,13 +27,21 @@ h2 {
 
 #shortly {
   border-top: 0.15em solid #AAA;
+  font-size: 1.5em;
   margin: 0 auto;
+  padding: 0 10px;
+  text-align: center;
+}
+
+#shurly {
+  font-size: 2.1em;
 }
 
 form {
   font-size: 2em;
   margin: 0 auto;
   margin-top: 30px;
+  padding: 0 10px;
   text-align: center;
   width: 100%;
 }
@@ -39,7 +52,7 @@ form {
 }
 
 footer {
-  font-size: 0.75em;
+  font-size: 0.7em;
   margin-top: 18em;
   padding: 0 10px;
 }

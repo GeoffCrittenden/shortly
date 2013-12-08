@@ -2,14 +2,13 @@
   <h1> It's <a href="/">shURLy</a>!</h1>
   <h2>the SHort URL maker</h2>
   <form action="/shurlyit" method="POST">
-    <input type="text" required name="url" placeholder="enter your url here" autofocus><br>
+    <input type="text" required name="url" placeholder="enter your url here" size="15"><br>
     <input class="submit" type="submit" value="Shorten it!">
   </form><br>
 
   <% if @shortly %>
     <div id="shortly">
-    <p>Your Shurly: 
-    <a id="shurly" href="http://shur.ly/<%= @shortly.shortly %>" target="_blank">shur.ly/<%= @shortly.shortly %></a></p>
+    <p id="shurly"><a href="http://shur.ly/<%= @shortly.shortly %>" target="_blank">shur.ly/<%= @shortly.shortly %></a></p>
     <p>Original URL: <a href="<%= @shortly.lead %><%= @shortly.body %>" target="_blank"><%= @shortly.url %></a></p>
     </div>
   <% elsif @error %>
@@ -19,8 +18,8 @@
   <% end %>
 
   <footer>
-    <p>shURLy! is an open source web application. You can find the source <a href="https://github.com/GeoffCrittenden/shortly" target="_blank">here</a>.</p>
-    <p>Copyright 2013. Licensed under The MIT License.</p>
+    <p>shURLy! is an open source web application licensed under The MIT License. You can find the source <a href="https://github.com/GeoffCrittenden/shortly" target="_blank">here</a>.</p>
+    <p>Copyright 2013 <a href="http://geoffcrittenden.com" target="_blank">GeoffCrittenden</a>.</p>
   </footer>
 
 </div>
