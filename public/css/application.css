@@ -1,6 +1,6 @@
 body {
   background-color: #DDD;
-  width: 90%;
+  width: 100%;
 }
 
 .container {
@@ -23,7 +23,6 @@ h2 {
 #shortly {
   border-top: 0.15em solid #AAA;
   margin: 0 auto;
-  width: 80%;
 }
 
 form {
