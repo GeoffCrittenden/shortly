@@ -7,12 +7,12 @@
   </form><br>
 
   <% if @shortly %>
-    <div id="shortly">
+    <div class="shortly">
     <p id="shurly"><a href="http://shur.ly/<%= @shortly.shortly %>" target="_blank">shur.ly/<%= @shortly.shortly %></a></p>
-    <p>Original URL: <a href="<%= @shortly.lead %><%= @shortly.body %>" target="_blank"><%= @shortly.url %></a></p>
+    <p>Original URL:<br><a href="<%= @shortly.lead %><%= @shortly.body %>" target="_blank"><span id="original"><%= @shortly.url %></span></a></p>
     </div>
   <% elsif @error %>
-    <div id="shortly">
+    <div class="shortly">
     <p><%= @error %></p>
     </div>
   <% end %>
