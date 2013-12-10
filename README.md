@@ -43,5 +43,5 @@ Using the shortly as the params, or splat, we can then search the database via a
 
 Right now, there is no security built in with Shur.ly.  A malicious user could redirect someone to a bad website using this service.
 
-There is also an issue with Heroku not always recognizing the naked domain of Shur.ly when a GET request is made.  So sometimes `http://shur.ly/MXd3dy` results in an Internal Servor Error while `http://www.shur.ly/MXd3dy` will always result in a successful redirect.
+There is also an issue with Heroku not always recognizing the naked domain of Shur.ly when a GET request is made.  So sometimes `http://shur.ly/MXd3dy` results in a Not Found Error while `http://www.shur.ly/MXd3dy` will always result in a successful redirect.
   
