@@ -1,4 +1,4 @@
-Shortly (Shurly)
+Shur.ly (Shortly)
 =======
 
 A URL shortening application
