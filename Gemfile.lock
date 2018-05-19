@@ -1,5 +1,5 @@
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     activemodel (5.2.0)
       activesupport (= 5.2.0)
@@ -80,6 +80,9 @@ DEPENDENCIES
   sinatra
   sinatra-contrib
   thin
+
+RUBY VERSION
+   ruby 2.4.0p0
 
 BUNDLED WITH
    1.15.3
