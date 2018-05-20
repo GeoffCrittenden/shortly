@@ -1,0 +1,15 @@
+AllCops:
+  Exclude:
+    - 'config/**/*.rb'
+    - 'db/migrate/*.rb'
+    - 'Rakefile'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+
+Metrics/LineLength:
+  Max: 100
+
+Style/RegexpLiteral:
+  Enabled: false
