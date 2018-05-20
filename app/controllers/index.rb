@@ -18,17 +18,13 @@ get '/s/:shortly' do
 end
 
 get '/*' do |shortly|
-  if shortly.length == 6
-    @shortly = Shortly.find_by_shortly(shortly)
-    if @shortly
-      redirect @shortly.url
-    else
-      @error = INVALID_SHURLY_MSG
-    end
+  @shortly = Shortly.find_by_shortly(shortly) if shortly.length == 6
+  if @shortly
+    redirect @shortly.url
   else
     @error = INVALID_SHURLY_MSG
+    erb :index
   end
-  erb :index
 end
 
 # ////////////  POST  /////////////////
