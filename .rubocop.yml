@@ -1,8 +1,6 @@
 AllCops:
   Exclude:
-    - 'config/**/*.rb'
     - 'db/migrate/*.rb'
-    - 'Rakefile'
 
 Metrics/BlockLength:
   Exclude:

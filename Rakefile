@@ -1,26 +1,23 @@
 require 'rake'
 # require 'rspec/core/rake_task'
 
-
 require ::File.expand_path('../config/environment', __FILE__)
 
 # Include all of ActiveSupport's core class extensions, e.g., String#camelize
 require 'active_support/core_ext'
 
 namespace :generate do
-  desc "Create an empty model in app/models, e.g., rake generate:model NAME=User"
+  desc 'Create an empty model in app/models, e.g., rake generate:model NAME=User'
   task :model do
-    unless ENV.has_key?('NAME')
-      raise "Must specificy model name, e.g., rake generate:model NAME=User"
+    unless ENV.key?('NAME')
+      raise 'Must specificy model name, e.g., rake generate:model NAME=User'
     end
 
     model_name     = ENV['NAME'].camelize
     model_filename = ENV['NAME'].underscore + '.rb'
     model_path = APP_ROOT.join('app', 'models', model_filename)
 
-    if File.exist?(model_path)
-      raise "ERROR: Model file '#{model_path}' already exists"
-    end
+    raise "ERROR: Model file '#{model_path}' already exists" if File.exist?(model_path)
 
     puts "Creating #{model_path}"
     File.open(model_path, 'w+') do |f|
@@ -32,19 +29,17 @@ namespace :generate do
     end
   end
 
-  desc "Create an empty migration in db/migrate, e.g., rake generate:migration NAME=create_tasks"
+  desc 'Create an empty migration in db/migrate, e.g., rake generate:migration NAME=create_tasks'
   task :migration do
-    unless ENV.has_key?('NAME')
-      raise "Must specificy migration name, e.g., rake generate:migration NAME=create_tasks"
+    unless ENV.key?('NAME')
+      raise 'Must specificy migration name, e.g., rake generate:migration NAME=create_tasks'
     end
 
     name     = ENV['NAME'].camelize
-    filename = "%s_%s.rb" % [Time.now.strftime('%Y%m%d%H%M%S'), ENV['NAME'].underscore]
+    filename = "#{Time.now.strftime('%Y%m%d%H%M%S')}_#{ENV['NAME'].underscore}.rb"
     path     = APP_ROOT.join('db', 'migrate', filename)
 
-    if File.exist?(path)
-      raise "ERROR: File '#{path}' already exists"
-    end
+    raise "ERROR: File '#{path}' already exists" if File.exist?(path)
 
     puts "Creating #{path}"
     File.open(path, 'w+') do |f|
@@ -57,19 +52,17 @@ namespace :generate do
     end
   end
 
-  desc "Create an empty model spec in spec, e.g., rake generate:spec NAME=user"
+  desc 'Create an empty model spec in spec, e.g., rake generate:spec NAME=user'
   task :spec do
-    unless ENV.has_key?('NAME')
-      raise "Must specificy migration name, e.g., rake generate:spec NAME=user"
+    unless ENV.key?('NAME')
+      raise 'Must specificy migration name, e.g., rake generate:spec NAME=user'
     end
 
     name     = ENV['NAME'].camelize
-    filename = "%s_spec.rb" % ENV['NAME'].underscore
+    filename = "#{ENV['NAME'].underscore}_spec.rb"
     path     = APP_ROOT.join('spec', filename)
 
-    if File.exist?(path)
-      raise "ERROR: File '#{path}' already exists"
-    end
+    raise "ERROR: File '#{path}' already exists" if File.exist?(path)
 
     puts "Creating #{path}"
     File.open(path, 'w+') do |f|
@@ -82,7 +75,6 @@ namespace :generate do
       EOF
     end
   end
-
 end
 
 namespace :db do
@@ -98,35 +90,35 @@ namespace :db do
     exec("dropdb #{DB_NAME}")
   end
 
-  desc "Migrate the database (options: VERSION=x, VERBOSE=false, SCOPE=blog)."
+  desc 'Migrate the database (options: VERSION=x, VERBOSE=false, SCOPE=blog).'
   task :migrate do
     ActiveRecord::Migrator.migrations_paths << File.dirname(__FILE__) + 'db/migrate'
-    ActiveRecord::Migration.verbose = ENV["VERBOSE"] ? ENV["VERBOSE"] == "true" : true
+    ActiveRecord::Migration.verbose = ENV['VERBOSE'] ? ENV['VERBOSE'] == 'true' : true
     migration_context = ActiveRecord::MigrationContext.new(ActiveRecord::Migrator.migrations_paths)
-    migration_context.migrate(ENV["VERSION"] ? ENV["VERSION"].to_i : nil) do |migration|
-      ENV["SCOPE"].blank? || (ENV["SCOPE"] == migration.scope)
+    migration_context.migrate(ENV['VERSION'] ? ENV['VERSION'].to_i : nil) do |migration|
+      ENV['SCOPE'].blank? || (ENV['SCOPE'] == migration.scope)
     end
   end
 
-  desc "Populate the database with dummy data by running db/seeds.rb"
+  desc 'Populate the database with dummy data by running db/seeds.rb'
   task :seed do
     require APP_ROOT.join('db', 'seeds.rb')
   end
 
-  desc "Returns the current schema version number"
+  desc 'Returns the current schema version number'
   task :version do
     puts "Current version: #{ActiveRecord::Migrator.current_version}"
   end
 end
 
 desc 'Start IRB with application environment loaded'
-task "console" do
-  exec "irb -r./config/environment"
+task 'console' do
+  exec 'irb -r./config/environment'
 end
 
-desc "Pings PING_URL to keep a dyno alive"
+desc 'Pings PING_URL to keep a dyno alive'
 task :dyno_ping do
-  require "net/http"
+  require 'net/http'
 
   if ENV['PING_URL']
     uri = URI(ENV['PING_URL'])
