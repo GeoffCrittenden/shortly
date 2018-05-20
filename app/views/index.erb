@@ -8,7 +8,7 @@
 
   <% if @shortly %>
     <div class="shortly">
-    <p id="shurly"><a href="http://shur.ly/<%= @shortly.shortly %>" target="_blank">shur.ly/<%= @shortly.shortly %></a></p>
+    <p id="shurly"><a href="/<%= @shortly.shortly %>" target="_blank">shur.ly/<%= @shortly.shortly %></a></p>
     <p>Original URL:<br><a href="<%= @shortly.lead %><%= @shortly.body %>" target="_blank"><span id="original"><%= @shortly.url %></span></a></p>
     </div>
   <% elsif @error %>
@@ -19,7 +19,7 @@
 
   <footer>
     <p>shURLy! is an open source web application licensed under The MIT License. You can find the source <a href="https://github.com/GeoffCrittenden/shortly" target="_blank">here</a>.</p>
-    <p>Copyright 2013 <a href="http://geoffcrittenden.com" target="_blank">GeoffCrittenden</a>.</p>
+    <p>Copyright 2018 <a href="http://geoffcrittenden.com" target="_blank">GeoffCrittenden</a>.</p>
   </footer>
 
 </div>

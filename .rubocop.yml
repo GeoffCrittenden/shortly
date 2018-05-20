@@ -1,0 +1,10 @@
+AllCops:
+  Exclude:
+    - 'db/migrate/*.rb'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+
+Metrics/LineLength:
+  Max: 100
