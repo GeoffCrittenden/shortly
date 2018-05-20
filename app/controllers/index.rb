@@ -30,23 +30,15 @@ end
 # ////////////  POST  /////////////////
 
 post '/shurlyit' do
-  matcher = /(\Ahttps?:\/\/www\.|\Ahttps?:\/\/)(.+)/
-  if matcher.match(params[:url])
-    lead = matcher.match(params[:url])[1]
-    body = matcher.match(params[:url])[2]
-  else
-    lead = 'http://'
-    body = params[:url]
-  end
   id = if Shortly.maximum(:id).nil?
          ''
        else
          Shortly.maximum(:id).next.to_s
        end
-  short = Shortly.create(url:     lead + body,
-                         longly:  Base64.encode64(id + body),
-                         shortly: Base64.encode64(id + body)[0..5],
-                         lead:    lead,
-                         body:    body)
+  short = Shortly.create(url:     params_url,
+                         longly:  Base64.encode64(id + url_body),
+                         shortly: Base64.encode64(id + url_body)[0..5],
+                         lead:    url_lead,
+                         body:    url_body)
   redirect "/s/#{short.shortly}"
 end
