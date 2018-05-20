@@ -8,6 +8,3 @@ Metrics/BlockLength:
 
 Metrics/LineLength:
   Max: 100
-
-Style/RegexpLiteral:
-  Enabled: false
