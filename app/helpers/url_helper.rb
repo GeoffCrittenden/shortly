@@ -5,7 +5,7 @@ def params_url
 end
 
 def url_lead
-  "#{@uri.scheme}://"
+  "#{@uri.scheme || 'http'}://"
 end
 
 def url_body
