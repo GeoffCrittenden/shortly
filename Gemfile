@@ -19,6 +19,7 @@ gem 'rake'
 gem 'shotgun'
 
 group :development, :test do
+  gem 'pry'
   gem 'rubocop'
 end
 
