@@ -1,6 +1,10 @@
 # module UrlHelper
-def params_url
+def valid_url?
   @uri = URI.parse(params[:url])
+  @uri.kind_of?(URI::HTTP) || @uri.host.present? || @uri.path =~ /.+\..+/
+end
+
+def params_url
   url_lead + url_body
 end
 
